@@ -8,14 +8,14 @@ Este proyecto es una base de datos relacional sencilla creada con **PostgreSQL**
 ---
 
 ## 🔑 Contenido del Proyecto
-
-
-
-
----
-
-## ✅ Consultas Clave Incluidas
-
+- DER(Diagrama entidad relacion)/Normalizacion
+- Creacion de tablas/atributos
+- Consultas
+- Inserciones de datos
+- Creación de vistas y vista Materializada
+- Creación PL/SQL
+- Creación de trigger
+- Creación de indices(Index)
 
 ---
   
