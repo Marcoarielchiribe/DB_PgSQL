@@ -4,9 +4,6 @@ Este proyecto es una base de datos relacional sencilla creada con **PostgreSQL**
 
 ---
 
-
----
-
 ## 🔑 Contenido del Proyecto
 - DER(Diagrama entidad relacion)/Normalizacion
 - Creacion de tablas/atributos
