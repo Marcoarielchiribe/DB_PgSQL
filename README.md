@@ -1,4 +1,4 @@
-# 📊 Proyecto SQL: Base de Datos Relacional Control Internacion
+# 🏥 Proyecto SQL: Base de Datos Relacional Control Internacion
 
 Este proyecto es una base de datos relacional sencilla creada con **PostgreSQL**. Forma parte de mi ruta de aprendizaje como **Administrador de Bases de Datos Junior**, y tiene como objetivo practicar los conceptos fundamentales de SQL.
 
