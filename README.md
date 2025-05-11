@@ -15,13 +15,5 @@ Este proyecto es una base de datos relacional sencilla creada con **PostgreSQL**
 - Creación de indices
 
 ---
-  
-## 💡 Conclusiones del Proyecto
-
--Se logró crear una base de datos relacional con integridad referencial mediante claves foráneas.
-
--Se realizaron consultas avanzadas usando INNER JOIN, LEFT JOIN, y RIGHT JOIN.
-
--Se obtuvieron insights importantes
 
 
