@@ -35,7 +35,7 @@ $$
 	END
 $$
 
--- Combinando pl/pgsql que retorna la cantidad de registros que hay en medicos y mostrando en el log los nombres
+-- Combinando pl/pgsql que retorna la cantidad de registros que hay en medicos y muestra en el log los nombres
 CREATE FUNCTION f_consulta_nombres_medicos()
 RETURNS INTEGER
 LANGUAGE 'plpgsql'
