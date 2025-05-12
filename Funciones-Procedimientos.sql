@@ -81,4 +81,3 @@ AS $$
 $$LANGUAGE 'plpgsql';
 
 SELECT (f_internacionesxmes('agosto')).*;
-SELECT * FROM f_internacionesxmes('febrero');
