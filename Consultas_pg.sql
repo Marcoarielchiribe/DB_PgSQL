@@ -71,7 +71,7 @@ GROUP BY EXTRACT(YEAR FROM fecha_nacimiento);
 SELECT md.idmedico,
 	md.nombre,
 	md.apellido 
-	FROM medicos md
+FROM medicos md
 LEFT JOIN internaciones i USING(idmedico)
 WHERE i.idinternacion IS NULL;
 
@@ -85,15 +85,16 @@ WHERE nombre ILIKE 'a%' OR nombre ILIKE 'h%';
 -- consulta combinada mostrando nombres de los pacientes internados 
 SELECT i.idinternacion,  
 		i.habitacion, 
-		(SELECT CONCAT(ps.nombre,' ',ps.apellido) AS "Pacientes" FROM pacientes ps 
-				WHERE i.idpaciente = ps.idpaciente)
+		(SELECT CONCAT(ps.nombre,' ',ps.apellido) AS "Pacientes"
+	         FROM pacientes ps 
+		 WHERE i.idpaciente = ps.idpaciente)
 	FROM internaciones i;
 
 
 -- eliminar paciente con la obra social UNION PERSONAL
 DELETE FROM pacientes
 WHERE idpaciente = (SELECT idobrasocial FROM obra_social
-						WHERE nombre = 'UNION PERSONAL');
+		    WHERE nombre = 'UNION PERSONAL');
 
 
 
