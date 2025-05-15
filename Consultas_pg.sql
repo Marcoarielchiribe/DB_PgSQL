@@ -24,7 +24,7 @@ LIMIT 1;
 SELECT ps.idpaciente,
 	ps.nombre, 
 	ps.apellido
-	FROM pacientes ps
+     FROM pacientes ps
 LEFT JOIN internaciones i USING(idpaciente)
 WHERE i.idinternacion IS NULL
 ORDER BY ps.idpaciente
@@ -32,7 +32,7 @@ ORDER BY ps.idpaciente
 -- cuantas internaciones hubo en el mes de febrero 
 
 SELECT COUNT(idinternacion) AS "Total Internaciones",
-(EXTRACT(MONTH FROM fecha)) AS "Mes"
+      (EXTRACT(MONTH FROM fecha)) AS "Mes"
 	FROM internaciones
 GROUP BY (EXTRACT(MONTH FROM fecha))
 HAVING EXTRACT(MONTH FROM fecha) = 2;
@@ -61,7 +61,7 @@ FROM pacientes
 -- cantidad de pacientes que hay internados mediante misma edad
 
 SELECT COUNT(idPaciente) AS "Pacientes",
-	(EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM fecha_nacimiento)) AS "Edad pacientes"
+       (EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM fecha_nacimiento)) AS "Edad pacientes"
 FROM pacientes
 GROUP BY EXTRACT(YEAR FROM fecha_nacimiento);
 
