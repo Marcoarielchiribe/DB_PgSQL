@@ -2,18 +2,18 @@
 -- averiguar los pacientes que fueron internados con su doctor a cargo 
 
 SELECT CONCAT(ps.nombre,' ', ps.apellido) AS "Paciente", 
-	   i.fecha, 
-	   i.diagnostico_preliminar,
-	   CONCAT(md.nombre,' ',md.apellido)  AS "Medico"  
-	FROM internaciones i
+       i.fecha, 
+       i.diagnostico_preliminar,
+       CONCAT(md.nombre,' ',md.apellido)  AS "Medico"  
+  FROM internaciones i
 INNER JOIN pacientes ps USING(idPaciente) 
 INNER JOIN medicos md USING(idMedico);
 
 -- consultando la ultima fecha de egreso 
 SELECT e.idegreso, 
-	MAX(e.fecha) AS "ultima fecha egreso", 
-	CONCAT(ps.nombre,' ',ps.apellido) AS "Paciente"
-	FROM egresos e
+       MAX(e.fecha) AS "ultima fecha egreso", 
+       CONCAT(ps.nombre,' ',ps.apellido) AS "Paciente"
+   FROM egresos e
 INNER JOIN pacientes ps USING(idpaciente)
 GROUP BY ps.nombre,ps.apellido,e.idegreso
 ORDER BY e.fecha DESC
@@ -22,9 +22,9 @@ LIMIT 1;
 -- consultar los pacientes que no han sido internados
 
 SELECT ps.idpaciente,
-	ps.nombre, 
-	ps.apellido
-     FROM pacientes ps
+       ps.nombre, 
+       ps.apellido
+   FROM pacientes ps
 LEFT JOIN internaciones i USING(idpaciente)
 WHERE i.idinternacion IS NULL
 ORDER BY ps.idpaciente
@@ -33,7 +33,7 @@ ORDER BY ps.idpaciente
 
 SELECT COUNT(idinternacion) AS "Total Internaciones",
       (EXTRACT(MONTH FROM fecha)) AS "Mes"
-	FROM internaciones
+   FROM internaciones
 GROUP BY (EXTRACT(MONTH FROM fecha))
 HAVING EXTRACT(MONTH FROM fecha) = 2;
 	
@@ -42,8 +42,8 @@ HAVING EXTRACT(MONTH FROM fecha) = 2;
 
 SELECT  COUNT(idpaciente) "Total pacientes", 
 	gn.nombre AS "Genero"
-FROM pacientes ps
-	INNER JOIN genero gn USING(idgenero)
+  FROM pacientes ps
+INNER JOIN genero gn USING(idgenero)
 GROUP BY gn.nombre;
 
 
@@ -69,26 +69,26 @@ GROUP BY EXTRACT(YEAR FROM fecha_nacimiento);
 -- medicos que no tienen internaciones
 
 SELECT md.idmedico,
-	md.nombre,
-	md.apellido 
-FROM medicos md
+       md.nombre,
+       md.apellido 
+  FROM medicos md
 LEFT JOIN internaciones i USING(idmedico)
 WHERE i.idinternacion IS NULL;
 
 -- buscar nombres de los pacientes que contengan el primer caracter a o h
 SELECT idpaciente,
-		nombre
+       nombre
   FROM pacientes
 WHERE nombre ILIKE 'a%' OR nombre ILIKE 'h%';
 
 
 -- consulta combinada mostrando nombres de los pacientes internados 
 SELECT i.idinternacion,  
-		i.habitacion, 
-		(SELECT CONCAT(ps.nombre,' ',ps.apellido) AS "Pacientes"
-	         FROM pacientes ps 
-		 WHERE i.idpaciente = ps.idpaciente)
-	FROM internaciones i;
+       i.habitacion, 
+      (SELECT CONCAT(ps.nombre,' ',ps.apellido) AS "Pacientes"
+	FROM pacientes ps 
+	WHERE i.idpaciente = ps.idpaciente)
+FROM internaciones i;
 
 
 -- eliminar paciente con la obra social UNION PERSONAL
