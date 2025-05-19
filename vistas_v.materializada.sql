@@ -4,7 +4,7 @@ CREATE OR REPLACE VIEW vw_Medicos_Especialidad
 AS 
 SELECT md.idmedico, CONCAT(md.nombre,' ', md.apellido) AS "Medicos",
 	e.nombre AS "Especialidad"
-	FROM medicos md
+  FROM medicos md
 INNER JOIN especialidad e USING(idespecialidad)
 ORDER BY md.idmedico;
 
@@ -20,11 +20,11 @@ y luego si llamar a la vista,no antes por que devolvera informacion desactualiza
 CREATE MATERIALIZED VIEW vw_Pacientes_ObraSocial
 AS 
 SELECT  ps.Nombre, 
-		ps.Apellido,
-		ps.Provincia,
-		ps.Telefono,
-		o.nombre AS "Obra social"
-	FROM pacientes ps
+	ps.Apellido,
+	ps.Provincia,
+	ps.Telefono,
+	o.nombre AS "Obra social"
+  FROM pacientes ps
 INNER JOIN obra_social o
 	USING(idobrasocial);
 
